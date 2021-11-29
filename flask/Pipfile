@@ -1,0 +1,29 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+aniso8601 = "*"
+click = "*"
+Flask = "*"
+Flask-RESTful = "*"
+Flask-SQLAlchemy = "*"
+flask-bcrypt = "*"
+flask-jwt-extended = "*"
+itsdangerous = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+pytz = "*"
+six = "*"
+SQLAlchemy = "*"
+Werkzeug = "*"
+requests = "*"
+bpython = "*"
+flask-cors = "*"
+flask-migrate = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
