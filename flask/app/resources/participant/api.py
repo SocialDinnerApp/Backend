@@ -17,7 +17,7 @@ class ParticipantAPI(Resource):
         #Create unique ID
         id = str(uuid4())
 
-        #create participant object
+        #Create participant object
         participant = Participant(
             userid = id,
             username = args['username'],
