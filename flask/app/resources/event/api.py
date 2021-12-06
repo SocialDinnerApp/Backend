@@ -21,23 +21,23 @@ class EventAPI(Resource):
             eventId = id,
             name = args['name'],
             description = args['description'],
-            org_Id = args['org_Id'],
+            org_Id = args['org_id'],
             fee = args['fee'],
-            #date = args['date'],
-            #time_starter = args['time_starter'],
-            #time_main = args['time_main'],
-            #time_dessert = args['time_dessert'],
+            date = args['date'],
+            time_starter = args['time_starter'],
+            time_main = args['time_main'],
+            time_dessert = args['time_dessert'],
             city = args['city'],
             zip_code = args['zip_code'],
             isPublic = args['isPublic'],
             max_participants = args['max_participants'],
             registration_deadline = args['registration_deadline'],
-            datetime_created = args['datetime_created'],
-            datetime_updated = args['datetime_updated']
+            #datetime_created = args['datetime_created'],
+            #datetime_updated = args['datetime_updated']
         )
 
         #Model integration
-        event.hash_password()
+        #event.hash_password()
 
         #Add user to database
         db.session.add(event)
