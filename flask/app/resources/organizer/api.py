@@ -3,11 +3,12 @@ from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identi
 from app import db
 from app.resources.organizer.model import Organizer
 from app.resources.organizer.args import post_args, update_args, login_args
+from app.resources.organizer.fields import resource_fields
 from uuid import uuid4
 import datetime
 
 class OrganizerAPI(Resource):
-    #@marshal_with(resource_fields)
+    @marshal_with(resource_fields)
     def post(self):
         
         #Get arguments

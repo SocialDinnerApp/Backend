@@ -4,7 +4,7 @@ from flask_restful import fields
 resource_fields = {
     'eventId': fields.String,
     'name': fields.String,
-    'description': fields.Text,
+    'description': fields.String,
     'org_Id': fields.String,
     'fee': fields.Integer,
     'date': fields.String,

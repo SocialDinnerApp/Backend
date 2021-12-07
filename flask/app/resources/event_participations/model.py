@@ -4,7 +4,7 @@ from app import db
 from datetime import date, datetime
 
 #Klassenamen wird genutzt für Tabellennamen
-class Event_Participation(db.Model):
+class EventParticipation(db.Model):
     #__tablename__ = 'users'
     teamId = db.Column(db.String(36), primary_key = True)
     userId = db.Column(db.String(36), db.ForeignKey('participant.userid'))
@@ -13,3 +13,4 @@ class Event_Participation(db.Model):
     eventId = db.Column(db.String(36), db.ForeignKey('event.eventId'))
     datetime_created = db.Column(db.DateTime, default=datetime.utcnow)  
     datetime_updated = db.Column(db.DateTime, default=datetime.utcnow)
+    #eventTeamMatching = db.relationship('eventTeamMatching', backref='EventParticipation', lazy=True)

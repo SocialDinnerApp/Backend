@@ -5,12 +5,13 @@ from app import db
 from app.resources import cookingLocation
 from app.resources.cookingLocation.model import CookingLocation
 from app.resources.cookingLocation.args import post_args, update_args
+from app.resources.cookingLocation.fields import resource_fields
 
 from uuid import uuid4
 import datetime
 
 class CookingLocationAPI(Resource):
-    #@marshal_with(resource_fields)
+    @marshal_with(resource_fields)
     def post(self):
 
         #Get arguments

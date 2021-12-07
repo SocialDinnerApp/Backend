@@ -6,7 +6,7 @@ from datetime import date, datetime
 class Event(db.Model):
     eventId = db.Column(db.String(36), primary_key = True)
     name = db.Column(db.String(100), nullable=False, unique=True)
-    description = db.Column(db.Text(300), nullable=False)
+    description = db.Column(db.String(300), nullable=False)
     org_Id = db.Column(db.String(36), db.ForeignKey('organizer.organizerId'))
     fee = db.Column(db.Integer, nullable=False)
     date = db.Column(db.String, nullable=False)

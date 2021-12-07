@@ -14,5 +14,5 @@ class CookingLocation(db.Model):
     floor = db.Column(db.Integer, nullable = False)
     hints = db.Column(db.String(100), nullable = False)
     #Beziehung
-    event_participation = db.relationship('Event_Participation', backref='cookingLocation', lazy=True)
+    event_participation = db.relationship('EventParticipation', backref='cookingLocation', lazy=True)
 
