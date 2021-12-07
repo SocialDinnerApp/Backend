@@ -2,7 +2,6 @@ from enum import unique
 from sqlalchemy.orm import backref
 from app import db
 from datetime import date, datetime
-from flask_bcrypt import generate_password_hash, check_password_hash
 
 class Event(db.Model):
     eventId = db.Column(db.String(36), primary_key = True)

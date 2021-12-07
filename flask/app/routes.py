@@ -12,6 +12,9 @@ from app.resources.event.model import Event
 from app.resources.cookingLocation.api import CookingLocationAPI
 from app.resources.cookingLocation.model import CookingLocation
 
+from app.resources.event_participations.api import Event_ParticipationsAPI
+from app.resources.event_participations.model import Event_Participation
+
 
 #Participant API
 api.add_resource(ParticipantAPI, '/api/participant', '/api/participant/<string:id>')
@@ -24,3 +27,6 @@ api.add_resource(EventAPI, '/api/event', '/api/event/<string:id>')
 
 #CookingLocation API
 api.add_resource(CookingLocationAPI, '/api/cookingLocation', '/api/cookingLocation/<string:id>')
+
+#Event_Paticipations API
+api.add_resource(Event_ParticipationsAPI, '/api/event_Participation', '/api/event_Participation/<string:id>')
