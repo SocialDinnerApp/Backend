@@ -4,6 +4,8 @@ from app.resources.organizer.model import Organizer
 
 
 from app.resources.participant.api import ParticipantAPI
+#from app.resources.participant.api import ParticipantAPI, LoginApi
+
 from app.resources.participant.model import Participant
 
 from app.resources.event.api import EventAPI
@@ -21,6 +23,7 @@ from app.resources.event_team_matching.model import eventTeamMatching
 
 #Participant API
 api.add_resource(ParticipantAPI, '/api/participant', '/api/participant/<string:id>')
+#api.add_resource(LoginApi, '/api/login')
 
 #Organizer API
 api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')

@@ -37,4 +37,50 @@ class ParticipantAPI(Resource):
 
         #Return recently created participant
         return participant_created, 201        
+
+    #@jwt_required()
+    #@marshal_with(resource_fields)
+    #def get(self, id=None):
+        #Get participantId
+        #participant_id = get_jwt_identity()
+        #participant = Participant.query.filter_by(id=participant_id).first_or_404()
+        #test = participant.name
+
+        #if test:
+        #    return test, 200
+        #else:
+        #    abort(400, message='User has no connected Sharap')
+            
         
+#class LoginApi(Resource):
+    #def post(self):
+        #Get passed arguments from the user
+        #args = login_args.parse_args()
+
+        #get user object
+        #participant = Participant.query.filter_by(email=args['email']).first_or_404()
+
+        #check if password is correct
+        #authorized = participant.check_password(args['password'])
+        #if not authorized:
+            #abort(401, message="Email or password is invalid")
+
+        #Set expiration
+        #expires = datetime.timedelta(days=7)
+
+        #Create access token, which the user uses for further requests
+        #access_token = create_access_token(identity=str(participant.id), expires_delta=expires)
+
+        #Get expiration date
+        #expiresAt = datetime.datetime.utcnow() + expires
+        #expiresAt_str = expiresAt.strftime("%Y-%m-%d %H:%M:%S")
+
+        #Return relevant information
+        #print(access_token)
+        #return {
+            #'token': access_token,
+            #'expiresAt': expiresAt_str,
+            #'userId': participant.id,
+            #}, 200
+
+            
