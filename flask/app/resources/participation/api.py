@@ -36,7 +36,7 @@ class ParticipationAPI(Resource):
             hints = args['hints'],
         )
 
-        teammate = Participant.query.filter_by(username=args['username']).first()
+        teammate = Participant.query.filter_by(username=args['username_partner']).first()
 
         event_participations = EventParticipation(
             teamId = event_participations_id,
@@ -55,9 +55,5 @@ class ParticipationAPI(Resource):
         db.session.add(event_participations)
         db.session.commit()
 
-        #Select created cookingLocation
-        cookingLocation_created = CookingLocation.query.filter_by(cookinglocationId=cookingLocation_id).first()
-        event_participation_created = CookingLocation.query.filter_by(teamId=event_participations_id).first()
-
         #Return recently created cookingLocation
-        return cookingLocation_created, event_participation_created, 201
+        return {'success': 'True'}, 201

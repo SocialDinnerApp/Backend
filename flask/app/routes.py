@@ -36,7 +36,7 @@ api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')
 
 #Event API
 api.add_resource(EventAPI, '/api/event', '/api/event/<string:id>')
-api.add_resource(getActiveEvents, '/api/getActiveEvents')
+api.add_resource(getActiveEvents, '/api/event/getActiveEvents')
 
 #CookingLocation API
 api.add_resource(CookingLocationAPI, '/api/cookingLocation', '/api/cookingLocation/<string:id>')

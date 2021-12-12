@@ -61,7 +61,7 @@ class getActiveEvents(Resource):
     def get(self, id=None):
         active_events = db.session.query(Event).filter(datetime.datetime.now() < Event.registration_deadline).all()
         #args for userId
-        EventParticipation.query.filter_by(userId=userId[0].userid).all()
+        # EventParticipation.query.filter_by(userId=userId[0].userid).all()
         return active_events
 
 
