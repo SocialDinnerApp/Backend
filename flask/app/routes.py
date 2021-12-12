@@ -21,10 +21,11 @@ from app.resources.event_team_matching.model import eventTeamMatching
 
 #Participant API
 api.add_resource(ParticipantAPI, '/api/participant', '/api/participant/<string:id>')
-api.add_resource(LoginApi, '/api/login')
+api.add_resource(LoginApi, '/api/participant/login')
 
 #Organizer API
 api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')
+#api.add_resource(LoginApi, '/api/organizer/login')
 
 #Event API
 api.add_resource(EventAPI, '/api/event', '/api/event/<string:id>')

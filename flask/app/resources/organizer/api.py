@@ -40,3 +40,17 @@ class OrganizerAPI(Resource):
 
         #Return recently created organizer
         return organizer_created, 201
+
+
+    @jwt_required()
+    @marshal_with(resource_fields)
+    def get(self, id=None):
+        #Get organizerId
+        #organizer_key = get_jwt_identity()
+        organizer = Organizer.query.filter_by(organizerId=id).first_or_404()
+        username = organizer.username
+
+        if username:
+            return organizer, 200
+        else:
+            abort(400, message='Error')

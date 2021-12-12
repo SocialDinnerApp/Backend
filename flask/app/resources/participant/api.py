@@ -59,7 +59,7 @@ class LoginApi(Resource):
         args = login_args.parse_args()
 
         #get user object
-        participant = Participant.query.filter_by(email=args['email']).first_or_404()
+        participant = Participant.query.filter_by(username=args['username']).first_or_404()
 
         #check if password is correct
         authorized = participant.check_password(args['password'])

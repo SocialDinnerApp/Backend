@@ -37,3 +37,17 @@ class Event_Team_MatchingAPI(Resource):
 
         #Return recently created event_Team_MatchingAPI
         return event_Team_Matching_created, 201
+
+    @jwt_required()
+    @marshal_with(resource_fields)
+    def get(self, id=None):
+        #Get organizerId
+        event_team_matching = eventTeamMatching.query.filter_by(matchingId=id).first_or_404()
+        teamId = eventTeamMatching.teamId
+        #username = organizer.username
+
+
+        if teamId:
+            return event_team_matching, 200
+        else:
+            abort(400, message='Error')
