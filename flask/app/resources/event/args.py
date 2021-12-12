@@ -3,6 +3,7 @@ from flask_restful import reqparse
 #Was muss für ein bestimmten Request übergeben
 post_args = reqparse.RequestParser()
 post_args.add_argument("name", type=str, help="name of the event is required", required=True)
+#post_args.add_argument("image", type=str, help="base64 of the image is required", required=True)
 post_args.add_argument("description", type=str, help="description of the event is required", required=True)
 post_args.add_argument("fee", type=int, help="fee of the event is required", required=True)
 post_args.add_argument("date", type=str, help="date of the event is required", required=True)

@@ -19,10 +19,16 @@ from app.resources.event_participations.model import EventParticipation
 from app.resources.event_team_matching.api import Event_Team_MatchingAPI
 from app.resources.event_team_matching.model import eventTeamMatching
 
+from app.resources.participation.api import ParticipationAPI
+
 
 #Participant API
 api.add_resource(ParticipantAPI, '/api/participant', '/api/participant/<string:id>')
 api.add_resource(LoginApi, '/api/participant/login')
+
+#Participation API
+api.add_resource(ParticipationAPI, '/api/participation')
+
 
 #Organizer API
 api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')
@@ -31,7 +37,6 @@ api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')
 #Event API
 api.add_resource(EventAPI, '/api/event', '/api/event/<string:id>')
 api.add_resource(getActiveEvents, '/api/getActiveEvents')
-
 
 #CookingLocation API
 api.add_resource(CookingLocationAPI, '/api/cookingLocation', '/api/cookingLocation/<string:id>')

@@ -1,6 +1,7 @@
+import re
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from werkzeug.datastructures import auth_property
+#from werkzeug.datastructures import auth_property
 from app import db
 from app.resources.event.model import Event
 from app.resources.event.args import post_args, update_args
@@ -17,11 +18,13 @@ class EventAPI(Resource):
 
         #Create unique ID
         id = str(uuid4())
+            
 
         #Create event object
         event = Event(
             eventId = id,
             name = args['name'],
+            #image = args['image'],
             description = args['description'],
             org_Id = args['org_id'],
             fee = args['fee'],
@@ -46,7 +49,7 @@ class EventAPI(Resource):
         db.session.commit()
 
         #Select created event
-        event_created = Event.query.filter_by(evendId=id).first()
+        event_created = Event.query.filter_by(eventId=id).first()
 
         #Return recently created event
         return event_created, 201
@@ -57,6 +60,8 @@ class getActiveEvents(Resource):
     @marshal_with(resource_fields)
     def get(self, id=None):
         active_events = db.session.query(Event).filter(datetime.datetime.now() < Event.registration_deadline).all()
+        #args for userId
+        EventParticipation.query.filter_by(userId=userId[0].userid).all()
         return active_events
 
 
@@ -65,5 +70,6 @@ class getActiveEvents(Resource):
 
         #Event.query.
         #registration_deadline
+    
 
 
