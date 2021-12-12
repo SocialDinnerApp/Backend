@@ -1,5 +1,6 @@
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from werkzeug.datastructures import auth_property
 from app import db
 from app.resources.event.model import Event
 from app.resources.event.args import post_args, update_args
@@ -32,7 +33,7 @@ class EventAPI(Resource):
             zip_code = args['zip_code'],
             isPublic = args['isPublic'],
             max_participants = args['max_participants'],
-            registration_deadline = args['registration_deadline'],
+            registration_deadline = datetime.datetime.strptime(args['registration_deadline'], '%d-%m-%Y'),
             #datetime_created = args['datetime_created'],
             #datetime_updated = args['datetime_updated']
         )
@@ -49,3 +50,20 @@ class EventAPI(Resource):
 
         #Return recently created event
         return event_created, 201
+
+class getActiveEvents(Resource):
+
+    #@jwt_required()
+    @marshal_with(resource_fields)
+    def get(self, id=None):
+        active_events = db.session.query(Event).filter(datetime.datetime.now() < Event.registration_deadline).all()
+        return active_events
+
+
+        #result = test.registration_deadline
+        #return test
+
+        #Event.query.
+        #registration_deadline
+
+

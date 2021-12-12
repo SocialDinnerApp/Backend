@@ -17,6 +17,6 @@ class Event(db.Model):
     zip_code = db.Column(db.Integer, nullable=False)
     isPublic = db.Column(db.Boolean, nullable=False)
     max_participants = db.Column(db.Integer, nullable=False)
-    registration_deadline = db.Column(db.String, nullable=False)
+    registration_deadline = db.Column(db.DateTime, nullable=False)
     datetime_created = db.Column(db.DateTime, default=datetime.utcnow)
     datetime_updated = db.Column(db.DateTime, default=datetime.utcnow)

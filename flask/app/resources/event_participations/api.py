@@ -35,3 +35,15 @@ class Event_ParticipationsAPI(Resource):
 
         #Return recently created event
         return event_participations_created, 201
+
+
+    @jwt_required()
+    @marshal_with(resource_fields)
+    def get(self, id=None):
+        event_participations = EventParticipation.query.filter_by(teamId=id).first_or_404()
+        teamId = event_participations.teamId
+
+        if teamId:
+            return event_participations, 200
+        else:
+            abort(400, message='Error')

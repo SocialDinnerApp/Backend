@@ -7,6 +7,7 @@ from app.resources.participant.api import ParticipantAPI, LoginApi
 from app.resources.participant.model import Participant
 
 from app.resources.event.api import EventAPI
+from app.resources.event.api import getActiveEvents
 from app.resources.event.model import Event
 
 from app.resources.cookingLocation.api import CookingLocationAPI
@@ -29,6 +30,8 @@ api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')
 
 #Event API
 api.add_resource(EventAPI, '/api/event', '/api/event/<string:id>')
+api.add_resource(getActiveEvents, '/api/getActiveEvents')
+
 
 #CookingLocation API
 api.add_resource(CookingLocationAPI, '/api/cookingLocation', '/api/cookingLocation/<string:id>')
