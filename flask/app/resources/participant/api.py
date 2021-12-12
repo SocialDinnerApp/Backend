@@ -53,7 +53,6 @@ class ParticipantAPI(Resource):
             
         
 class LoginApi(Resource):
-    @marshal_with(resource_fields)
     def post(self):
         #Get passed arguments from the user
         args = login_args.parse_args()
@@ -81,7 +80,7 @@ class LoginApi(Resource):
         return {
             'token': access_token,
             'expiresAt': expiresAt_str,
-            'userId': participant
+            'userId': participant.userid
             }, 200
 
             
