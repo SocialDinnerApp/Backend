@@ -94,7 +94,9 @@ class LoginApi(Resource):
         return {
             'token': access_token,
             'expiresAt': expiresAt_str,
-            'userId': participant.userid
+            'userId': participant.userid,
+            'username': participant.username,
+            'email': participant.email,
             }, 200
 
             
