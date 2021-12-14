@@ -1,9 +1,9 @@
 import re
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-#from werkzeug.datastructures import auth_property
 from app import db
 from app.resources.event.model import Event
+from app.resources.event_participations.model import EventParticipation
 from app.resources.event.args import post_args, update_args
 from app.resources.event.fields import resource_fields
 from uuid import uuid4
@@ -56,20 +56,26 @@ class EventAPI(Resource):
 
 class getActiveEvents(Resource):
 
-    #@jwt_required()
+    @jwt_required()
     @marshal_with(resource_fields)
     def get(self, id=None):
+
+        userId = get_jwt_identity()
+        #Get all active events 
         active_events = db.session.query(Event).filter(datetime.datetime.now() < Event.registration_deadline).all()
+        # Events bei dem User registriert ist
+        user_registrated = db.session.query(EventParticipation).filter(EventParticipation.userId == userId).all()
+
+        for i in range(len(user_registrated)-1):
+            for i in range(len(active_events)-1):
+                if user_registrated[i].eventId == active_events[i].eventId:
+                    active_events.pop(i)
+            
+
+
         #args for userId
         # EventParticipation.query.filter_by(userId=userId[0].userid).all()
         return active_events
-
-
-        #result = test.registration_deadline
-        #return test
-
-        #Event.query.
-        #registration_deadline
     
 
 
