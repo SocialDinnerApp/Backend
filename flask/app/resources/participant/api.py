@@ -2,9 +2,10 @@ from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from app import db
 from app.resources.event_participations.model import EventParticipation
+from app.resources.event.model import Event
 from app.resources.participant.model import Participant
 from app.resources.participant.args import post_args, update_args, login_args
-from app.resources.participant.fields import resource_fields
+from app.resources.participant.fields import resource_fields, resource_fields2
 
 
 from uuid import uuid4
@@ -53,17 +54,24 @@ class ParticipantAPI(Resource):
         else:
             abort(400, message='Error')
 
-class MyEvents(Resource):
-    def get(self):
 
-        userId = Participant.query.filter_by(userid=args['userId']).first()
-        my_events = []
-        my_events.append(EventParticipation.query.filter_by(userId=userId))
+class MyEventsAPI(Resource):
+    @jwt_required()
+    @marshal_with(resource_fields2)
+    def get(self, id=None):
         
-        myEvent = MyEvents(
-            username = ['username'],
+        userId = get_jwt_identity()
+        my_participation = db.session.query(EventParticipation).join(Event, EventParticipation.eventId == Event.eventId).filter(datetime.datetime.now() < Event.registration_deadline).filter((EventParticipation.userId == userId) | (EventParticipation.partner_userId == userId)).all()
+        print(f'Meine Teilnahmen <TeamId>:', my_participation)
+        my_events = []
+        
+        for i in range(len(my_participation)):
+            event_id = my_participation[i].eventId
+            event = db.session.query(Event).filter(Event.eventId == event_id).all()
+            print(event)
+            my_events.append(event)
 
-        )
+        return my_events
             
         
 class LoginApi(Resource):

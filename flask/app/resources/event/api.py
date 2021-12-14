@@ -72,7 +72,6 @@ class getActiveEvents(Resource):
                     active_events.pop(i)
             
 
-
         #args for userId
         # EventParticipation.query.filter_by(userId=userId[0].userid).all()
         return active_events

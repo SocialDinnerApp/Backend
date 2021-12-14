@@ -3,8 +3,9 @@ from app.resources.organizer.api import OrganizerAPI
 from app.resources.organizer.model import Organizer 
 
 
-from app.resources.participant.api import ParticipantAPI, LoginApi
+from app.resources.participant.api import ParticipantAPI, LoginApi, MyEventsAPI
 from app.resources.participant.model import Participant
+
 
 from app.resources.event.api import EventAPI
 from app.resources.event.api import getActiveEvents
@@ -25,6 +26,7 @@ from app.resources.participation.api import ParticipationAPI
 #Participant API
 api.add_resource(ParticipantAPI, '/api/participant', '/api/participant/<string:id>')
 api.add_resource(LoginApi, '/api/participant/login')
+api.add_resource(MyEventsAPI, '/api/participant/myEvents')
 
 #Participation API
 api.add_resource(ParticipationAPI, '/api/participation')
