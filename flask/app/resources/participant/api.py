@@ -67,7 +67,7 @@ class MyEventsAPI(Resource):
         
         for i in range(len(my_participation)):
             event_id = my_participation[i].eventId
-            event = db.session.query(Event).filter(Event.eventId == event_id).all()
+            event = db.session.query(Event).filter(Event.eventId == event_id).first()
             print(event)
             my_events.append(event)
 
