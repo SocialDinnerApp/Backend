@@ -63,18 +63,24 @@ class getActiveEvents(Resource):
         userId = get_jwt_identity()
         #Get all active events 
         active_events = db.session.query(Event).filter(datetime.datetime.now() < Event.registration_deadline).all()
+        print(active_events)
         # Events bei dem User registriert ist
-        user_registrated = db.session.query(EventParticipation).filter(EventParticipation.userId == userId).all()
+        user_registrated = db.session.query(EventParticipation).filter((EventParticipation.userId == userId) | (EventParticipation.partner_userId == userId) ).all()
+        print(user_registrated)
 
-        for i in range(len(user_registrated)-1):
-            for i in range(len(active_events)-1):
-                if user_registrated[i].eventId == active_events[i].eventId:
-                    active_events.pop(i)
-            
+        alle_events = []
+        for i in range(len(active_events)):
+            for j in range(len(user_registrated)):
+                print(active_events[i].eventId, user_registrated[j].eventId)
+                if active_events[i].eventId != user_registrated[j].eventId:
+                    alle_events.append(active_events[i])
+                    
+                    print("test:" ,alle_events)
+
 
         #args for userId
         # EventParticipation.query.filter_by(userId=userId[0].userid).all()
-        return active_events
+        return alle_events
     
 
 
