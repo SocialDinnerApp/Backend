@@ -68,19 +68,10 @@ class getActiveEvents(Resource):
         user_registrated = db.session.query(EventParticipation).filter((EventParticipation.userId == userId) | (EventParticipation.partner_userId == userId) ).all()
         print(user_registrated)
 
-        alle_events = []
-        for i in range(len(active_events)):
-            for j in range(len(user_registrated)):
-                print(active_events[i].eventId, user_registrated[j].eventId)
-                if active_events[i].eventId != user_registrated[j].eventId:
-                    alle_events.append(active_events[i])
-                    
-                    print("test:" ,alle_events)
+        registEvents = [event.eventId for event in user_registrated]
+        allEvents = [event for event in active_events if event.eventId not in registEvents]
 
-
-        #args for userId
-        # EventParticipation.query.filter_by(userId=userId[0].userid).all()
-        return alle_events
+        return allEvents
     
 
 
