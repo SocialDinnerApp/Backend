@@ -45,10 +45,6 @@ class ParticipationAPI(Resource):
             eventId = args['eventId'],
             cooking_locationId = cookingLocation_id
         )
-    
-
-        #Model integration   
-        #cookingLocation.hash_password()
 
         #Add cookingLocation to database
         db.session.add(cookingLocation)
