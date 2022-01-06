@@ -10,6 +10,7 @@ from uuid import uuid4
 import datetime
 
 class EventAPI(Resource):
+    @jwt_required()
     @marshal_with(resource_fields)
     def post(self):
 

@@ -1,6 +1,7 @@
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 from src import db
+from authorization import val_key
 from src.resources.event_participations.model import EventParticipation
 from src.resources.event.model import Event
 from src.resources.participant.model import Participant
@@ -17,6 +18,10 @@ class ParticipantAPI(Resource):
         
         #Get arguments
         args = post_args.parse_args()
+
+        if args["val_key"] != val_key:
+            abort(401, message='You are not allowed')
+
 
         #Create unique ID
         id = str(uuid4())

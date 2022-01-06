@@ -10,6 +10,7 @@ from src.resources.event_team_matching.fields import resource_fields
 
 
 class Event_Team_MatchingAPI(Resource):
+    @jwt_required()
     @marshal_with(resource_fields)
     def post(self):
 

@@ -8,6 +8,7 @@ post_args.add_argument("password", type=str, help="password of the organizer is 
 post_args.add_argument("university", type=str, help="university of the organizer is required", required=True)
 post_args.add_argument("city", type=str, help="city of the organizer is required", required=True)
 post_args.add_argument("faculty", type=str, help="faculty of the organizer is required", required=True)
+post_args.add_argument("val_key", type=str, help="val_key is required", required=True)
 
 
 update_args = reqparse.RequestParser()

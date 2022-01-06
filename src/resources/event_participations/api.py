@@ -15,6 +15,7 @@ from flask import json, jsonify
 import datetime
 
 class Event_ParticipationsAPI(Resource):
+    @jwt_required()
     @marshal_with(resource_fields)
     def post(self):
 
