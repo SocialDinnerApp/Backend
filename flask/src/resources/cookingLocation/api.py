@@ -1,11 +1,11 @@
 import re
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from app import db
-from app.resources import cookingLocation
-from app.resources.cookingLocation.model import CookingLocation
-from app.resources.cookingLocation.args import post_args, update_args
-from app.resources.cookingLocation.fields import resource_fields
+from src import db
+from src.resources import cookingLocation
+from src.resources.cookingLocation.model import CookingLocation
+from src.resources.cookingLocation.args import post_args, update_args
+from src.resources.cookingLocation.fields import resource_fields
 
 from uuid import uuid4
 import datetime

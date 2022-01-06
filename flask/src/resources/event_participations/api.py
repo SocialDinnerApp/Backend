@@ -1,15 +1,15 @@
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from app import db
-from app.resources import event_participations, participant
-from app.resources.cookingLocation import model
-from app.resources.event_participations.model import EventParticipation
-from app.resources.event.model import Event
-from app.resources.event_team_matching.model import eventTeamMatching
-from app.resources.participant.model import Participant
-from app.resources.cookingLocation.model import CookingLocation
-from app.resources.event_participations.args import post_args, update_args
-from app.resources.event_participations.fields import resource_fields
+from src import db
+from src.resources import event_participations, participant
+from src.resources.cookingLocation import model
+from src.resources.event_participations.model import EventParticipation
+from src.resources.event.model import Event
+from src.resources.event_team_matching.model import eventTeamMatching
+from src.resources.participant.model import Participant
+from src.resources.cookingLocation.model import CookingLocation
+from src.resources.event_participations.args import post_args, update_args
+from src.resources.event_participations.fields import resource_fields
 from uuid import uuid4
 from flask import json, jsonify
 import datetime

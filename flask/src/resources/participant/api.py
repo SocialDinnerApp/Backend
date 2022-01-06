@@ -1,11 +1,11 @@
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from app import db
-from app.resources.event_participations.model import EventParticipation
-from app.resources.event.model import Event
-from app.resources.participant.model import Participant
-from app.resources.participant.args import post_args, update_args, login_args
-from app.resources.participant.fields import resource_fields, resource_fields2
+from src import db
+from src.resources.event_participations.model import EventParticipation
+from src.resources.event.model import Event
+from src.resources.participant.model import Participant
+from src.resources.participant.args import post_args, update_args, login_args
+from src.resources.participant.fields import resource_fields, resource_fields2
 
 
 from uuid import uuid4

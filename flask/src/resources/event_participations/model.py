@@ -1,6 +1,6 @@
 from enum import unique
 from sqlalchemy.orm import backref
-from app import db
+from src import db
 from datetime import date, datetime
 
 #Klassenamen wird genutzt für Tabellennamen

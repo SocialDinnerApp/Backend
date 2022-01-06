@@ -1,5 +1,5 @@
-from app import app
-from app import routes
+from src import app
+from src import routes
 
 #from flask import Flask
 #from flask_restful import Api, Resource

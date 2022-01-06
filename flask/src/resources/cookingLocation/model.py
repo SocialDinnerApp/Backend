@@ -1,9 +1,9 @@
 from enum import unique
 from sqlalchemy.orm import backref
-from app import db
+from src import db
 from datetime import date, datetime
 
-from app.resources import event_participations
+from src.resources import event_participations
 
 class CookingLocation(db.Model):
     cookinglocationId = db.Column(db.String(36), primary_key = True)

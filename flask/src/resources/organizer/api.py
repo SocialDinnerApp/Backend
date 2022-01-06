@@ -1,9 +1,9 @@
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from app import db
-from app.resources.organizer.model import Organizer
-from app.resources.organizer.args import post_args, update_args, login_args
-from app.resources.organizer.fields import resource_fields
+from src import db
+from src.resources.organizer.model import Organizer
+from src.resources.organizer.args import post_args, update_args, login_args
+from src.resources.organizer.fields import resource_fields
 from uuid import uuid4
 import datetime
 

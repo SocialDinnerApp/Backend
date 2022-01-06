@@ -1,26 +1,26 @@
-from app import api
-from app.resources.organizer.api import OrganizerAPI
-from app.resources.organizer.model import Organizer 
+from src import api
+from src.resources.organizer.api import OrganizerAPI
+from src.resources.organizer.model import Organizer 
 
 
-from app.resources.participant.api import ParticipantAPI, LoginApi, MyEventsAPI
-from app.resources.participant.model import Participant
+from src.resources.participant.api import ParticipantAPI, LoginApi, MyEventsAPI
+from src.resources.participant.model import Participant
 
 
-from app.resources.event.api import EventAPI
-from app.resources.event.api import getActiveEvents
-from app.resources.event.model import Event
+from src.resources.event.api import EventAPI
+from src.resources.event.api import getActiveEvents
+from src.resources.event.model import Event
 
-from app.resources.cookingLocation.api import CookingLocationAPI
-from app.resources.cookingLocation.model import CookingLocation
+from src.resources.cookingLocation.api import CookingLocationAPI
+from src.resources.cookingLocation.model import CookingLocation
 
-from app.resources.event_participations.api import Event_ParticipationsAPI, Get_event_detailsAPI
-from app.resources.event_participations.model import EventParticipation
+from src.resources.event_participations.api import Event_ParticipationsAPI, Get_event_detailsAPI
+from src.resources.event_participations.model import EventParticipation
 
-from app.resources.event_team_matching.api import Event_Team_MatchingAPI
-from app.resources.event_team_matching.model import eventTeamMatching
+from src.resources.event_team_matching.api import Event_Team_MatchingAPI
+from src.resources.event_team_matching.model import eventTeamMatching
 
-from app.resources.participation.api import ParticipationAPI
+from src.resources.participation.api import ParticipationAPI
 
 
 #Participant API

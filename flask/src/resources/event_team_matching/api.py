@@ -1,12 +1,12 @@
 from flask_restful import Resource, marshal_with, abort, request
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from app import db
-from app.resources import event_participations
-from app.resources.event_team_matching.model import eventTeamMatching
-from app.resources.event_team_matching.args import post_args, update_args
+from src import db
+from src.resources import event_participations
+from src.resources.event_team_matching.model import eventTeamMatching
+from src.resources.event_team_matching.args import post_args, update_args
 from uuid import uuid4
 import datetime
-from app.resources.event_team_matching.fields import resource_fields
+from src.resources.event_team_matching.fields import resource_fields
 
 
 class Event_Team_MatchingAPI(Resource):

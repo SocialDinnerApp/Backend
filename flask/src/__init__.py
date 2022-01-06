@@ -21,9 +21,9 @@ CORS(app)
 db = SQLAlchemy(app)
 
 
-from app.resources.organizer.model import Organizer
-from app.resources.participant.model import Participant
-from app.resources.event.model import Event
-from app.resources.cookingLocation.model import CookingLocation
-from app.resources.event_participations.model import EventParticipation
-from app.resources.event_team_matching.model import eventTeamMatching
+from src.resources.organizer.model import Organizer
+from src.resources.participant.model import Participant
+from src.resources.event.model import Event
+from src.resources.cookingLocation.model import CookingLocation
+from src.resources.event_participations.model import EventParticipation
+from src.resources.event_team_matching.model import eventTeamMatching
