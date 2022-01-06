@@ -4,6 +4,7 @@ from src import db
 from src.resources.organizer.model import Organizer
 from src.resources.organizer.args import post_args, update_args, login_args
 from src.resources.organizer.fields import resource_fields
+from authorization import val_key
 from uuid import uuid4
 import datetime
 
@@ -13,6 +14,10 @@ class OrganizerAPI(Resource):
         
         #Get arguments
         args = post_args.parse_args()
+
+        if args["val_key"] != val_key:
+            abort(401, message='You are not allowed')
+        
 
         #Create unique ID
         id = str(uuid4())
