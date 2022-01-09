@@ -1,4 +1,4 @@
-import main
+import app
 from src import db
 
 db.create_all()

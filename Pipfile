@@ -25,6 +25,9 @@ flask-migrate = "*"
 gunicorn = "*"
 numpy = "*"
 
+psycopg2-binary = "*"
+psycopg2 = "*"
+
 [dev-packages]
 
 [requires]
