@@ -23,6 +23,7 @@ bpython = "*"
 flask-cors = "*"
 flask-migrate = "*"
 gunicorn = "*"
+numpy = "*"
 
 [dev-packages]
 
