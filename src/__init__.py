@@ -16,7 +16,7 @@ jwt = JWTManager(app)
 #app.config.from_envvar('ENV_FILE_LOCATION')
 api = Api(app)
 
-print(os.environ['DATBASE_URI'])
+print(os.environ['DATABASE_URI'])
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://euadjxioxklpuy:ead0a3b6ed2b5e02fecd74ef782ef2f9da93017dae48b94fee410ba6437c0c66@ec2-52-213-119-221.eu-west-1.compute.amazonaws.com:5432/d95t44jah3m8f2'
