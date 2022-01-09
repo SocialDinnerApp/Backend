@@ -24,6 +24,7 @@ flask-cors = "*"
 flask-migrate = "*"
 gunicorn = "*"
 numpy = "*"
+python-dotenv = "*"
 
 psycopg2-binary = "*"
 psycopg2 = "*"
