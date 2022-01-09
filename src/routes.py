@@ -18,11 +18,10 @@ from src.resources.event_participations.api import Event_ParticipationsAPI, Get_
 from src.resources.event_participations.model import EventParticipation
 
 from src.resources.event_team_matching.api import Event_Team_MatchingAPI
+from src.resources.matching.api import TeamMatchingAlgorithmus
 from src.resources.event_team_matching.model import eventTeamMatching
 
 from src.resources.participation.api import ParticipationAPI
-
-from src.resources.helper.api import EmailExistenceAPI, UsernameExistenceAPI, MatchingUsernamesAPI
 
 
 #Participant API
@@ -51,8 +50,4 @@ api.add_resource(Get_event_detailsAPI, '/api/eventParticipation/event_details', 
 
 #Event_Team_Matching API
 api.add_resource(Event_Team_MatchingAPI, '/api/eventTeamMatching', '/api/eventTeamMatching/<string:id>')
-
-#Event_Team_Matching API
-api.add_resource(EmailExistenceAPI, '/api/emailexistence')
-api.add_resource(UsernameExistenceAPI, '/api/usernameexistence')
-api.add_resource(MatchingUsernamesAPI, '/api/matchingusernames')
+api.add_resource(TeamMatchingAlgorithmus, '/api/eventTeamMatching/run', '/api/eventTeamMatching/run/<string:id>')
