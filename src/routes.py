@@ -1,5 +1,5 @@
 from src import api
-from src.resources.organizer.api import OrganizerAPI
+from src.resources.organizer.api import OrganizerAPI, OrganizerLoginApi
 from src.resources.organizer.model import Organizer 
 
 
@@ -37,7 +37,7 @@ api.add_resource(ParticipationAPI, '/api/participation')
 
 #Organizer API
 api.add_resource(OrganizerAPI, '/api/organizer', '/api/organizer/<string:id>')
-#api.add_resource(LoginApi, '/api/organizer/login')
+api.add_resource(OrganizerLoginApi, '/api/organizer/login')
 
 #Event API
 api.add_resource(EventAPI, '/api/event', '/api/event/<string:id>')

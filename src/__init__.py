@@ -4,6 +4,10 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
+from dotenv import load_dotenv
+
+# load environment variables
+load_dotenv()
 
 # Set environment variables
 #os.environ['ENV_FILE_LOCATION'] = './.env'
