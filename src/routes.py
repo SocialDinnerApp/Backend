@@ -26,7 +26,7 @@ from src.resources.participation.api import ParticipationAPI
 from src.resources.helper.api import EmailExistenceAPI, UsernameExistenceAPI, MatchingUsernamesAPI
 
 
-from src.resources.visualization.revenue.api import MontlyRevenueAPI
+from src.resources.visualization.revenue.api import MonthlyRevenueAPI
 
 
 #Participant API
@@ -62,5 +62,5 @@ api.add_resource(EmailExistenceAPI, '/api/emailexistence')
 api.add_resource(UsernameExistenceAPI, '/api/usernameexistence')
 api.add_resource(MatchingUsernamesAPI, '/api/matchingusernames')
 
-api.add_resource(MontlyRevenueAPI, '/api/monthlyrevenue')
+api.add_resource(MonthlyRevenueAPI, '/api/monthlyrevenue')
 
