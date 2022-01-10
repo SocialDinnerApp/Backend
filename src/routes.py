@@ -27,6 +27,8 @@ from src.resources.helper.api import EmailExistenceAPI, UsernameExistenceAPI, Ma
 
 
 from src.resources.visualization.revenue.api import MonthlyRevenueAPI
+from src.resources.visualization.organizer_events.api import Last_Seven_Events
+
 
 
 #Participant API
@@ -63,4 +65,4 @@ api.add_resource(UsernameExistenceAPI, '/api/usernameexistence')
 api.add_resource(MatchingUsernamesAPI, '/api/matchingusernames')
 
 api.add_resource(MonthlyRevenueAPI, '/api/monthlyrevenue')
-
+api.add_resource(Last_Seven_Events, '/api/lastseven')
