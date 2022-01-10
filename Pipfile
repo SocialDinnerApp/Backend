@@ -25,6 +25,7 @@ flask-migrate = "*"
 gunicorn = "*"
 numpy = "*"
 python-dotenv = "*"
+jsonify = "*"
 
 psycopg2-binary = "*"
 psycopg2 = "*"

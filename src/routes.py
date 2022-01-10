@@ -62,5 +62,5 @@ api.add_resource(EmailExistenceAPI, '/api/emailexistence')
 api.add_resource(UsernameExistenceAPI, '/api/usernameexistence')
 api.add_resource(MatchingUsernamesAPI, '/api/matchingusernames')
 
-api.add_resource(MontlyRevenueAPI, '/api/montlyrevenue')
+api.add_resource(MontlyRevenueAPI, '/api/monthlyrevenue')
 
