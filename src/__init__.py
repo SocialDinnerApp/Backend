@@ -21,6 +21,7 @@ database_uri = os.environ['DATABASE_URI']
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/database.db'
 CORS(app)
 db = SQLAlchemy(app)
 
