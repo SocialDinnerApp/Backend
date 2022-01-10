@@ -21,8 +21,8 @@ jwt = JWTManager(app)
 api = Api(app)
 
 
-database_uri = os.environ['DATABASE_URI']
-
+database_uri = os.environ['DATABASE_URL']
+database_uri = database_uri.replace('postgres://', 'postgresql://')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 CORS(app)
