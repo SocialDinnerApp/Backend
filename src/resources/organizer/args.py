@@ -20,5 +20,5 @@ update_args.add_argument("city", type=str, help="city of the organizer is requir
 update_args.add_argument("faculty", type=str, help="faculty of the organizer is required", required=True)
 
 login_args = reqparse.RequestParser()
-login_args.add_argument("email", type=str, help="email of the organizer is required", required=True)
+login_args.add_argument("username", type=str, help="username of the organizer is required", required=True)
 login_args.add_argument("password", type=str, help="password of the organizer is required", required=True)

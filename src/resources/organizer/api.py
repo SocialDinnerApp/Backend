@@ -59,3 +59,36 @@ class OrganizerAPI(Resource):
             return organizer, 200
         else:
             abort(400, message='Error')
+
+class OrganizerLoginApi(Resource):
+    def post(self):
+        #Get passed arguments from the user
+        args = login_args.parse_args()
+
+        #get user object
+        organizer = Organizer.query.filter_by(username=args['username']).first_or_404()
+
+        #check if password is correct
+        authorized = organizer.check_password(args['password'])
+        if not authorized:
+            abort(401, message="username or password is invalid")
+
+        #Set expiration
+        expires = datetime.timedelta(days=7)
+
+        #Create access token, which the user uses for further requests
+        access_token = create_access_token(identity=str(organizer.organizerId), expires_delta=expires)
+
+        #Get expiration date
+        expiresAt = datetime.datetime.utcnow() + expires
+        expiresAt_str = expiresAt.strftime("%Y-%m-%d %H:%M:%S")
+
+        #Return relevant information
+        print(access_token)
+        return {
+            'token': access_token,
+            'expiresAt': expiresAt_str,
+            'userId': organizer.organizerId,
+            'username': organizer.username,
+            'email': organizer.email,
+            }, 200

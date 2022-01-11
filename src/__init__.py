@@ -4,6 +4,10 @@ from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
+from dotenv import load_dotenv
+
+# load environment variables
+load_dotenv()
 
 # Set environment variables
 #os.environ['ENV_FILE_LOCATION'] = './.env'
@@ -17,8 +21,8 @@ jwt = JWTManager(app)
 api = Api(app)
 
 
-database_uri = os.environ['DATABASE_URI']
-
+database_uri = os.environ['DATABASE_URL']
+database_uri = database_uri.replace('postgres://', 'postgresql://')
 
 #app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/database.db'
