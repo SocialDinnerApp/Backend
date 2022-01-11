@@ -26,6 +26,11 @@ from src.resources.participation.api import ParticipationAPI
 from src.resources.helper.api import EmailExistenceAPI, UsernameExistenceAPI, MatchingUsernamesAPI
 
 
+from src.resources.visualization.revenue.api import MonthlyRevenueAPI
+from src.resources.visualization.organizer_events.api import Last_Seven_Events
+
+
+
 #Participant API
 api.add_resource(ParticipantAPI, '/api/participant', '/api/participant/<string:id>')
 api.add_resource(LoginApi, '/api/participant/login')
@@ -58,3 +63,6 @@ api.add_resource(TeamMatchingAlgorithmus, '/api/eventTeamMatching/run', '/api/ev
 api.add_resource(EmailExistenceAPI, '/api/emailexistence')
 api.add_resource(UsernameExistenceAPI, '/api/usernameexistence')
 api.add_resource(MatchingUsernamesAPI, '/api/matchingusernames')
+
+api.add_resource(MonthlyRevenueAPI, '/api/monthlyrevenue')
+api.add_resource(Last_Seven_Events, '/api/lastseven')

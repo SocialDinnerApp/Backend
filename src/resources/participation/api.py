@@ -8,8 +8,6 @@ from src.resources.event_participations.model import EventParticipation
 from src.resources.participation.args import post_args
 from src.resources.participation.fields import resource_fields
 from src.resources.participant.model import Participant
-
-
 from uuid import uuid4
 import datetime
 
