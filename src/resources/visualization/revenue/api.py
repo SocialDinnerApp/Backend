@@ -22,7 +22,7 @@ class MonthlyRevenueAPI(Resource):
         # Rein machen !!!!
         #organizer_id = get_jwt_identity()
 
-        event_this_month = db.session.query(Event).filter((datetime.datetime.now().month == extract('month', Event.registration_deadline)) and (Event.org_Id == args['organizerId'])).all()
+        # event_this_month = db.session.query(Event).filter((datetime.datetime.now().month == extract('month', Event.registration_deadline)) and (Event.org_Id == args['organizerId'])).all()
         events = db.session.query(Event).filter(Event.org_Id == args['organizerId']).all()
 
         count_revenu = 0
@@ -33,6 +33,7 @@ class MonthlyRevenueAPI(Resource):
             print(f'liste',participants)
             for participant in participants:
                 sum_of_participants += 1
+            # print(len(participants))
             event_revenue = 0
             event_revenue = sum_of_participants * event.fee
             count_revenu = count_revenu + sum_of_participants * event.fee
@@ -58,7 +59,7 @@ class MonthlyRevenueAPI(Resource):
         # print(f'Overall revenue:', count_revenu)
 
 
-        # return jsonify(revenue=count_revenu)
+        return jsonify(revenue=count_revenu)
 
 
 

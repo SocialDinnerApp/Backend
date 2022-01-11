@@ -22,12 +22,13 @@ class Last_Seven_Events(Resource):
         # Rein machen !!!!
         #organizer_id = get_jwt_identity()
 
-        events = db.session.query(Event).filter(Event.org_Id == args['organizerId']).order_by(Event.datetime_created.desc())
+        events = db.session.query(Event).filter(Event.org_Id == args['organizerId']).order_by(Event.datetime_created.desc()).all()
 
-        last_four = events[:4]
+        if len(events) >= 8:
+            events = events[:7]
 
         event_informations = []
-        for event in last_four:
+        for event in events:
                 participants = db.session.query(EventParticipation).filter(EventParticipation.eventId == event.eventId).all()
                 count = 0
                 for participant in participants:
@@ -35,4 +36,4 @@ class Last_Seven_Events(Resource):
                 event_info = {'date': event.date, 'name': event.name, 'Anzahl': count}
                 event_informations.append(dict(event_info))
 
-        print(event_informations)
+        return event_informations
