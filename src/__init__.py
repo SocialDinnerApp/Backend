@@ -24,8 +24,8 @@ api = Api(app)
 database_uri = os.environ['DATABASE_URL']
 database_uri = database_uri.replace('postgres://', 'postgresql://')
 
-#app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data/database.db'
 CORS(app)
 db = SQLAlchemy(app)
 
