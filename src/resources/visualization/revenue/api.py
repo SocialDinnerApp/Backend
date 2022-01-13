@@ -24,11 +24,9 @@ class MonthlyRevenueAPI(Resource):
         count_revenu = 0
         for event in events:
             print(f'Event:', event)
-            sum_of_participants = 0
             participants = db.session.query(EventParticipation).filter(EventParticipation.eventId == event.eventId, extract('month', EventParticipation.datetime_created) == datetime.datetime.now().month).all()
             print(f'liste',participants)
-            for participant in participants:
-                sum_of_participants += 1
+            sum_of_participants = len(participants)
             # print(len(participants))
             event_revenue = 0
             event_revenue = sum_of_participants * event.fee

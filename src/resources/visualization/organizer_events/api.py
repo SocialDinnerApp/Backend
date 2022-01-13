@@ -26,12 +26,8 @@ class Last_Seven_Events(Resource):
 
         event_informations = []
         for event in events:
-            print(event.name)
             participants = db.session.query(EventParticipation).filter(EventParticipation.eventId == event.eventId).all()
-            print(participants)
-            count = 0
-            for participant in participants:
-                count += 1
+            count = len(participants)
             event_info = {'date': event.date, 'name': event.name, 'Anzahl': count}
             event_informations.append(dict(event_info))
 
