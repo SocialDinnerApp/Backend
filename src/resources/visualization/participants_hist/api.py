@@ -15,6 +15,7 @@ class ParticipantHistory(Resource):
         # Get arguments
         organizer_id = get_jwt_identity()
 
+        #get all events of this organizer
         events = db.session.query(Event).filter(
             Event.org_Id == organizer_id).order_by(Event.datetime_created.desc()).all()
 
